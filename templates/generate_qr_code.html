@@ -14,7 +14,7 @@
         <!-- QR Code Form-->
         <div class="container mt-4" style="max-width: 600px; border: 1px solid #ccc; padding: 20px; border-radius: 5px;">
             <h2>Generate QR Code for Your Restaurant Menu</h2>
-            <form action="" method="post">
+            <form action="{% url 'generate_qr_code' %}" method="post">
                 {% csrf_token %}
                 {{ form.as_p }}
                 <button type="submit" class="btn btn-primary">Generate QR Code</button>

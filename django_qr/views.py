@@ -12,6 +12,8 @@ def generate_qr_code(request):
             url = form.cleaned_data['url']
         # Generate QR code
         qr = qrcode.make(url)
+        # Ensure media directory exists
+        os.makedirs(settings.MEDIA_ROOT, exist_ok=True)
         qr_filename = restaurant_name.replace(" ", "_").lower() + '_qr.png'
         qr_filepath = os.path.join(settings.MEDIA_ROOT, qr_filename) #media/filename
         qr.save(qr_filepath)
